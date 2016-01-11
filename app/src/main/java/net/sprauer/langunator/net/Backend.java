@@ -1,11 +1,13 @@
-package net.sprauer.langunator;
+package net.sprauer.langunator.net;
 
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 
+import net.sprauer.langunator.MainActivity;
+import net.sprauer.langunator.R;
 import net.sprauer.langunator.models.Category;
-import net.sprauer.langunator.net.RestClient;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,6 +45,11 @@ public class Backend {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+            }
+
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                ((TextView) activity.findViewById(R.id.txt)).setText("Can't fetch index: (Code " + statusCode + "): ");
+                Toast.makeText(activity, "Can't fetch index: (Code " + statusCode + ") ", Toast.LENGTH_LONG);
             }
         };
     }

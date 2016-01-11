@@ -17,7 +17,8 @@ import com.loopj.android.http.RequestParams;
  *
  */
 public class RestClient extends AsyncHttpClient {
-    public static final String REST_URL = "https://langunator.staging.inline.de"; // Change this, base API URL
+    //TODO: public static final String REST_URL = "https://langunator.staging.inline.de";
+    public static final String REST_URL = "http://192.168.188.20:4567";
 
     public void getIndex(JsonHttpResponseHandler jsonHttpResponseHandler) {
         get(apiUrl("/"), defaultParams(), jsonHttpResponseHandler);
